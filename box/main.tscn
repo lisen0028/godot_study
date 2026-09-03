@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://briy2o24kg2p1"]
+
+[ext_resource type="Script" uid="uid://5nw54pw0x3g4" path="res://box.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://hm4k04nwynl8" path="res://OIP.webp" id="2_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(339, 146.78125)
+
+[node name="main" type="Node2D" unique_id=477721870]
+
+[node name="box" type="Area2D" parent="." unique_id=120931828]
+script = ExtResource("1_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="box" unique_id=1580388566]
+position = Vector2(554, 334)
+texture = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box" unique_id=324189367]
+position = Vector2(561, 213)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[connection signal="input_event" from="box" to="box" method="_on_input_event"]
