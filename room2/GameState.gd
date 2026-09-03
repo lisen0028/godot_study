@@ -23,3 +23,19 @@ func take_key():
 	key_taken_changed.emit()
 	has_key_changed.emit()
 	
+func open_door():
+		if door_opened:
+			return
+		door_opened = true
+		has_key = false
+		door_opened_changed.emit()
+		has_key_changed.emit()
+		
+		get_tree().change_scene_to_file("res://room_2.tscn")
+		
+func open_box():
+		if box_opened:
+			return
+		box_opened = true
+		box_opened_changed.emit()
+	

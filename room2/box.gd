@@ -22,9 +22,5 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	print(event) # Replace with function body.
 	if  event is InputEventMouseButton and event.button_index == 1 and event.pressed:
 		if not GameState.box_opened:
-			GameState.box_opened = true
-			GameState.box_opened_changed.emit()
-		else:
-			GameState.box_opened = false
-			GameState.box_opened_changed.emit()
+			GameState.open_box()
 			
