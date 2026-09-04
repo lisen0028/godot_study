@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dblylt8aotymg"]
+
+[ext_resource type="Script" uid="uid://bb6ov52a6auem" path="res://room_2.gd" id="1_wjifb"]
+[ext_resource type="Script" uid="uid://286kour1at26" path="res://button.gd" id="2_7hp4u"]
+
+[node name="room2" type="Node2D" unique_id=1194902420]
+script = ExtResource("1_wjifb")
+
+[node name="Label" type="Label" parent="." unique_id=1803700194]
+offset_left = 149.0
+offset_top = 38.0
+offset_right = 367.0
+offset_bottom = 154.0
+text = "这是第二个房间"
+
+[node name="Button" type="Button" parent="." unique_id=956287424]
+offset_left = 421.0
+offset_top = 203.0
+offset_right = 596.0
+offset_bottom = 314.0
+script = ExtResource("2_7hp4u")
+
+[connection signal="gui_input" from="Button" to="Button" method="_on_gui_input"]

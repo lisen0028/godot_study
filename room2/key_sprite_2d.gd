@@ -13,7 +13,7 @@ func _ready() -> void:
 #刷新钥匙visible状态
 func refresh():
 	if GameState.box_opened and not GameState.key_taken:
-		key_sprite.visible = true
+		key_sprite.visible = true 
 	else:
 		key_sprite.visible = false
 

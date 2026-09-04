@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://briy2o24kg2p1"]
+
+[ext_resource type="Script" uid="uid://5nw54pw0x3g4" path="res://box.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://hm4k04nwynl8" path="res://OIP.webp" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://bvy8vjvlcddxu" path="res://key.webp" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://bbiklgln3qfgn" path="res://key_sprite_2d.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://co1vy2kgn3uvb" path="res://palyer.gd" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://bpkwwys5ch0wl" path="res://door.gd" id="6_272bh"]
+[ext_resource type="Texture2D" uid="uid://fnlyson24yrb" path="res://door.png" id="7_5vw27"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(284.0625, 173.09985)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufv1a"]
+size = Vector2(197, 117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6qmb"]
+size = Vector2(319, 402)
+
+[node name="main" type="Node2D" unique_id=477721870]
+position = Vector2(15, 50)
+
+[node name="box" type="Area2D" parent="." unique_id=120931828]
+script = ExtResource("1_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="box" unique_id=1580388566]
+position = Vector2(329, 238)
+scale = Vector2(1.1223629, 1.1417112)
+texture = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box" unique_id=324189367]
+position = Vector2(333, 117)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="key" type="Area2D" parent="." unique_id=374387939]
+monitoring = false
+monitorable = false
+script = ExtResource("4_1bvp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="key" unique_id=1761654582]
+visible = false
+position = Vector2(294.99994, 302)
+scale = Vector2(0.24531244, 0.14781249)
+texture = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="key" unique_id=1003751355]
+position = Vector2(293.5, 302.5)
+shape = SubResource("RectangleShape2D_ufv1a")
+
+[node name="player" type="Node2D" parent="." unique_id=1814317566]
+script = ExtResource("5_lquwl")
+
+[node name="door" type="Area2D" parent="." unique_id=447447794]
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="door" unique_id=1109134425]
+position = Vector2(961, 262.00003)
+scale = Vector2(0.36744186, 0.47093022)
+texture = ExtResource("7_5vw27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door" unique_id=218511976]
+position = Vector2(960.5, 262)
+shape = SubResource("RectangleShape2D_k6qmb")
+
+[connection signal="input_event" from="box" to="box" method="_on_input_event"]
+[connection signal="input_event" from="key" to="key" method="_on_input_event"]
+[connection signal="input_event" from="key" to="key/Sprite2D" method="_on_key_input_event"]
+[connection signal="input_event" from="door" to="door" method="_on_input_event"]
