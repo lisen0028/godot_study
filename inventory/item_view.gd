@@ -1,12 +1,12 @@
 extends Node2D
 
-@export var item_id = ""
+@export var item_id = "" #要展示的物品
+@export var source_object_id=""  #物品来自哪个容器
 
 @onready var sprite = $Sprite2D
 
 @onready var area=$Area2D
 
-@export var source_object_id=""  #物品来自哪个容器
 
 func _ready():
 	area.clicked.connect(take_item)
@@ -25,7 +25,7 @@ func load_texture():
 			sprite.texture = preload("res://photo.png")
 
 func take_item():
-	GameState.player.add_item(item_id)
-	GameState.set_object_state(source_object_id,"content_taken",true)
+	var res = GameState.take_content(source_object_id)
 	#将box中key的content_taken修改为true
-	queue_free()
+	if res:
+		queue_free()

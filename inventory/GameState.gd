@@ -51,6 +51,7 @@ func take_content(object_id):
 	set_object_state(object_id,"content_taken",true)
 	# 通知
 	content_taken_changed.emit(object_id)
+	return true
 	
 func open_door(object_id):
 	var door_opened = get_object_state(
