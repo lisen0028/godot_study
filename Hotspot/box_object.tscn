@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dxf6ofu18tgt2"]
+
+[ext_resource type="Script" uid="uid://c1t0bckrk185y" path="res://BoxObject.gd" id="1_5yadi"]
+[ext_resource type="Texture2D" uid="uid://hm4k04nwynl8" path="res://OIP.webp" id="2_i7m8o"]
+[ext_resource type="Script" uid="uid://ug7dcj5um7vl" path="res://interaction.gd" id="3_ilmtr"]
+[ext_resource type="Script" uid="uid://bsdba08k8j8vk" path="res://hotspot.gd" id="4_yd6jy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysiph"]
+size = Vector2(759.75, 505.5)
+
+[node name="BoxObject" type="Node2D" unique_id=1832432174]
+script = ExtResource("1_5yadi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=796530347]
+position = Vector2(662.5, 364)
+scale = Vector2(1.5970465, 1.342246)
+texture = ExtResource("2_i7m8o")
+
+[node name="Interaction" type="Node" parent="." unique_id=1444132653]
+script = ExtResource("3_ilmtr")
+
+[node name="Hotspot" type="Area2D" parent="Interaction" unique_id=1757702531]
+position = Vector2(565, 330)
+script = ExtResource("4_yd6jy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction/Hotspot" unique_id=15726286]
+position = Vector2(96, 35)
+shape = SubResource("RectangleShape2D_ysiph")
+
+[connection signal="input_event" from="Interaction/Hotspot" to="Interaction/Hotspot" method="_on_input_event"]

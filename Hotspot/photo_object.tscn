@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://csnj60fdjt2f3"]
+
+[ext_resource type="Script" uid="uid://dprjiwllpit6t" path="res://photo_object.gd" id="1_qvqcx"]
+[ext_resource type="Script" uid="uid://dt7yk240fp4dn" path="res://photo_interaction.gd" id="2_64qu3"]
+[ext_resource type="Script" uid="uid://d0rryvnr3uef2" path="res://photo_hotspot.gd" id="3_2qrwa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrine"]
+size = Vector2(933.875, 529.75)
+
+[node name="photo_object" type="Node2D" unique_id=52858323]
+script = ExtResource("1_qvqcx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1966548528]
+
+[node name="Interaction" type="Node" parent="." unique_id=1677861708]
+script = ExtResource("2_64qu3")
+
+[node name="Hotspot" type="Area2D" parent="Interaction" unique_id=1970429264]
+position = Vector2(565, 330)
+script = ExtResource("3_2qrwa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction/Hotspot" unique_id=1953852101]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_qrine")
+
+[connection signal="input_event" from="Interaction/Hotspot" to="Interaction/Hotspot" method="_on_input_event"]
